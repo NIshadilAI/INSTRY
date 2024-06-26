@@ -12,9 +12,15 @@ pip install INSTRY
 
 ```python
 from instry import load_model
+import json
 
-model = load_model('path_to_pretrained_model.pkl')
-result = model.predict('some text describing skills and job')
+# Make sure to replace 'instry_model.pkl' with the actual path to your model file
+model = load_model('instry_model.pkl')
+result = model.predict("some text describing skills and job")
 
-print(result)
+# Serialize the result to make it JSON compatible
+serialized_result = result  # Result is already serialized by the model
+
+# Print the serialized result as a JSON string
+print(json.dumps(serialized_result, indent=4))
 ```
